@@ -1,60 +1,111 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/normalize.min.css" />
-  </head>
-  <body>
-    <div class="content">
-      <div class="content-sidebar">
+    <link
+            rel="stylesheet"
+            href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="css/normalize.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<div class="content">
+    <div class="content-sidebar">
         <button class="content-sidebar__button" type="button"></button>
         <ul class="content-sidebar__list">
-          <li class="content-sidebar__item">
-            <a
-              class="content-sidebar__link content-sidebar__fb"
-              target="_blank"
-              href="#"
-            ></a>
-          </li>
-          <li class="content-sidebar__item">
-            <a
-              class="content-sidebar__link content-sidebar__ig"
-              target="_blank"
-              href="#"
-            ></a>
-          </li>
-          <li class="content-sidebar__item">
-            <a
-              class="content-sidebar__link content-sidebar__tw"
-              target="_blank"
-              href="#"
-            ></a>
-          </li>
+            <li class="content-sidebar__item">
+                <a
+                        class="content-sidebar__link content-sidebar__fb"
+                        target="_blank"
+                        href="#"
+                ></a>
+            </li>
+            <li class="content-sidebar__item">
+                <a
+                        class="content-sidebar__link content-sidebar__ig"
+                        target="_blank"
+                        href="#"
+                ></a>
+            </li>
+            <li class="content-sidebar__item">
+                <a
+                        class="content-sidebar__link content-sidebar__tw"
+                        target="_blank"
+                        href="#"
+                ></a>
+            </li>
         </ul>
-      </div>
-      <header class="content-header">
+    </div>
+    <header class="content-header">
         <a href="#" class="content-header__logo"></a>
         <nav>
-          <ul class="content-header__list">
-            <li class="content-header__item">
-              <a class="content-header__link active" href="#">Home</a>
-            </li>
-            <li class="content-header__item">
-              <a class="content-header__link" href="#">Roadmap</a>
-            </li>
-            <li class="content-header__item">
-              <a class="content-header__link" href="#">About us</a>
-            </li>
-            <li class="content-header__item">
-              <a class="content-header__link wallet" href="#"></a>
-            </li>
-          </ul>
+            <ul class="content-header__list">
+                <li class="content-header__item">
+                    <a class="content-header__link active" href="#">Home</a>
+                </li>
+                <li class="content-header__item">
+                    <a class="content-header__link" href="#">Roadmap</a>
+                </li>
+                <li class="content-header__item">
+                    <a class="content-header__link" href="#">About us</a>
+                </li>
+                <li class="content-header__item">
+                    <a class="content-header__link wallet" href="#"></a>
+                </li>
+            </ul>
         </nav>
-      </header>
-      <main class="content-main"></main>
-    </div>
-  </body>
+    </header>
+    <main class="content-main">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="swiper-body">
+                        Slide 1
+                    </div>
+                    <div class="swiper-footer"> text</div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="swiper-body">
+                        Slide 2
+                    </div>
+                    <div class="swiper-footer"> text2</div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="swiper-body">
+                        Slide 3
+                    </div>
+                    <div class="swiper-footer"> text3</div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </main>
+</div>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<script>
+    var count = ['1', '2', '3']
+    var price = ['119 ETH', '193 ETH', '78 ETH']
+    var art = ['Julius Caesar', 'Into the Abyss ', 'Disoboulus']
+    var swiper = new Swiper(".mySwiper", {
+        direction: "vertical",
+        slidePerView: 1,
+        spaceBetween: 30,
+        mousewheel: true,
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            renderBullet: function (index, className) {
+                return '<p class="' + className + '">' + ("#0" + (count[index])) + '<span>' + (art[index]) + '</span>' + '<span>' + (price[index]) + '</span>' + "</p>";
+            },
+        }
+    });
+</script>
+</body>
 </html>
